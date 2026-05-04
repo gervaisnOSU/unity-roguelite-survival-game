@@ -1,0 +1,21 @@
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class ProjectileDeleter : MonoBehaviour
+{
+    [SerializeField] float lifespan = 3f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Destroy(gameObject, lifespan);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+}
