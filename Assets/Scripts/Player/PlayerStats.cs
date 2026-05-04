@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float recovery;                // Player health recovery (UI display name: Recovery)
     private float lastHitTime;
     private Coroutine flashRoutine;
-    [SerializeField] private float invincibleTime = 0.25f;
+    [SerializeField] private float invincibleTime = 0.5f;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     [SerializeField] private float flashDuration = 0.1f;
@@ -48,19 +48,21 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (isDead)
+        {
+            Debug.Log("Damage ignored: player is dead.");
             return;
+        }
 
         if (Time.time < lastHitTime + invincibleTime)
+        {
+            Debug.Log("Damage ignored: invincibility active.");
             return;
+        }
 
         currentHealth = Mathf.Max(currentHealth - damage, 0f);
         lastHitTime = Time.time;
 
-        if (currentHealth <= 0)
-        {
-            Die();
-            return;
-        }
+        Debug.Log("Player took damage: " + damage + ". Current health: " + currentHealth);
 
         if (flashRoutine != null)
         {
@@ -68,6 +70,11 @@ public class PlayerStats : MonoBehaviour
         }
 
         flashRoutine = StartCoroutine(DamageFlash());
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     private System.Collections.IEnumerator DamageFlash()
@@ -88,7 +95,6 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        spriteRenderer.color = originalColor;
         Debug.Log("Player has died.");
 
         if (GameManager.Instance != null)

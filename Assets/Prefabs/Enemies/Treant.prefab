@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreantStats
   moveSpeed: 5
   Health: 8
-  attackPower: 0
+  attackPower: 1
   attackSpeed: 0
   defense: 0
   recovery: 0
