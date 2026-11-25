@@ -21,3 +21,9 @@ Technologies:
 Repository Structure: Assets/ Packages/ ProjectSettings/
 
 Project Context: This project was completed as part of a team software engineering course and demonstrates integration of Unity gameplay systems with external services.
+
+Citation: 
+A lot of the art used in the project was not my own, but belongs to
+Asset Name: Tiny RPG - Forest
+Author Name: Ansimuz
+Asset Link: https://assetstore.unity.com/packages/2d/characters/tiny-rpg-forest-114685
