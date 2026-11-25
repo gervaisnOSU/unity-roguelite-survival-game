@@ -1,5 +1,7 @@
 Unity Roguelite Survival Game: A Unity-based survival game developed during CS361 Software Engineering at Oregon State University.
 
+I made this video as a part of my project. It explains some of the microservices, and shows off the gameplay: https://www.youtube.com/watch?v=m_2UWSVH_l8 
+
 Overview
 The project was developed using a microservice-based architecture. The game client communicated with external Python microservices for various gameplay-related systems.
 
